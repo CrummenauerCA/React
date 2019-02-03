@@ -16,6 +16,8 @@ export default class Main extends Component {
         this.setState({ products: response.data.docs });
     };
 
+    
+
     render() {
 
         const { products } = this.state;
@@ -29,6 +31,10 @@ export default class Main extends Component {
                         <a href="">Acessar</a>
                     </article>
                 ))}
+                <div className="actions">
+                    <button onClick={this.prevPage}>Anterior</button>
+                    <button onClick={this.nextPage}>Próxima</button>
+                </div>
             </div>
         );
     }
