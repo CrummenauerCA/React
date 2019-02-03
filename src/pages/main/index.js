@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 export default class Main extends Component {
@@ -20,14 +21,14 @@ export default class Main extends Component {
     };
 
     prevPage = () => {
-        const {page} = this.state;
+        const { page } = this.state;
         if (page === 1) return;
         const pageNumber = page - 1;
         this.loadProducts(pageNumber);
     }
 
     nextPage = () => {
-        const {page, productInfo} = this.state;
+        const { page, productInfo } = this.state;
         if (page === productInfo.pages) return;
         const pageNumber = page + 1;
         this.loadProducts(pageNumber);
@@ -43,7 +44,7 @@ export default class Main extends Component {
                     <article key={product._id}>
                         <strong>{product.title}</strong>
                         <p>{product.description}</p>
-                        <a href="">Acessar</a>
+                        <Link to={`/products/${product._id}`}>Acessar</Link>
                     </article>
                 ))}
                 <div className="actions">
